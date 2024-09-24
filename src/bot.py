@@ -1,15 +1,18 @@
-from telegram.ext import Application, CommandHandler
+from telegram.ext import Application
 from config import TOKEN
-from handlers import start, help
+from handlers import set_handlers, add_handlers
 
-# Inicializar o bot
-app = Application.builder().token(TOKEN).build()
+def main():
+    # Inicializar o bot
+    app = Application.builder().token(TOKEN).post_init(set_handlers).build()
 
-# Adicionar handlers
-app.add_handler(CommandHandler("start", start))
-app.add_handler(CommandHandler("help", help))
+    # Adicionar handlers
+    add_handlers(app)
 
-# Rodar o bot
-print("Bot started")
-app.run_polling()
-print("Finished")
+    # Rodar o bot
+    print("Bot started")
+    app.run_polling()
+    print("Finished")
+
+if __name__ == "__main__":
+    main()
