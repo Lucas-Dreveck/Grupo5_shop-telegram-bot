@@ -3,12 +3,12 @@ name = "grupo5-shop-telegram-bot"
 version = "0.1.0"
 description = ""
 authors = [
-    "Daniel Hartmann<daniel.hartmann@alunos.bpkedu.com.br>",
+    "Daniel Hartmann <daniel.hartmann@alunos.bpkedu.com.br>",
     "Eduardo Corrêa <eduardolongencorrea@gmail.com>",
-    "Gabriel Costa<gabriel.costa@alunos.bpkedu.com.br>",
+    "Gabriel Costa <gabriel.costa@alunos.bpkedu.com.br>",
     "Lucas Dreveck <lucas.dreveck@alunos.bpkedu.com.br>",
-    "Mayumi Bogoni<mayumi.bogoni@alunos.bpkedu.com.br>",
-    "Paola Silva<Paola.silva@alunos.bpkedu.com.br>",
+    "Mayumi Bogoni <mayumi.bogoni@alunos.bpkedu.com.br>",
+    "Paola Silva <Paola.silva@alunos.bpkedu.com.br>",
 ]
 package-mode = false
 readme = "README.md"
@@ -16,6 +16,10 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.12"
 python-telegram-bot = "^21.5"
+types-requests = "^2.32.0.20241016"
+watchfiles = "^0.24.0"
+requests = "^2.32.3"
+aiohttp = "^3.11.7"
 
 [tool.poetry.group.dev.dependencies]
 python-dotenv = "^1.0.1"

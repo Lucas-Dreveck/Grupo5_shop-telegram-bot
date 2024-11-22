@@ -13,6 +13,9 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 
     if update.message:
         await update.message.reply_text(
-            "Bem-vindo ao Shop Bot! Escolha uma opção:", 
+            "Bem-vindo ao Shop Bot! Escolha uma opção:\n\n" 
+            "/catalog - Ver o catálogo de produtos\n"
+            "/cart - Ver o carrinho de compras\n\n"
+            "Ou clique nos botões abaixo:",
             reply_markup=reply_markup
         )
