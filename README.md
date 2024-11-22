@@ -45,32 +45,32 @@ poetry run python src/bot.py
 ```
 
 ### Available Commands
-/start - Start the bot
-/catalog - View product catalog
-/cart - View shopping cart
-/status - Check last order status
-/register - Register user information
-/help - Get help
-/support - Request human support
+ - /start - Start the bot
+ - /catalog - View product catalog
+ - /cart - View shopping cart
+ - /status - Check last order status
+ - /register - Register user information
+ - /help - Get help
+ - /support - Request human support
 
 ### Features
-📦 Product catalog browsing
-🛒 Shopping cart management
-💳 Checkout process
-📱 WhatsApp support integration
-🔄 Order status tracking
+ - 📦 Product catalog browsing
+ - 🛒 Shopping cart management
+ - 💳 Checkout process
+ - 📱 WhatsApp support integration
+ - 🔄 Order status tracking
 
 ### Development
 The bot is built using:
 
-python-telegram-bot
-Poetry for dependency management
-Watchfiles for hot reload during development
+ - python-telegram-bot
+ - Poetry for dependency management
+ - Watchfiles for hot reload during development
 
 ### Team
-Daniel Hartmann
-Eduardo Corrêa
-Gabriel Costa
-Lucas Dreveck
-Mayumi Bogoni
-Paola Silva
+ - Daniel Hartmann
+ - Eduardo Corrêa
+ - Gabriel Costa
+ - Lucas Dreveck
+ - Mayumi Bogoni
+ - Paola Silva
