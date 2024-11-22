@@ -58,7 +58,12 @@ async def handle_cart_actions(update: Update, context: ContextTypes.DEFAULT_TYPE
         
         if action == "clear":
             cart_manager.clear_cart(user_id)
-            await query.edit_message_text("Carrinho limpo.")
+            await query.edit_message_text(
+                "Carrinho limpo com sucesso.\n"
+                "Para adicionar produtos, clique nos botões do menu ou aqui:\n"
+                "/catalog - Ver catálogo de produtos\n"
+                "/cart - Ver carrinho de compras"
+            )
             return
         
         if action == "view":
@@ -91,7 +96,11 @@ async def handle_cart_actions(update: Update, context: ContextTypes.DEFAULT_TYPE
             if cart_item:
                 product = cart_item['product']
                 if action == 'remove':
-                    cart_manager.remove_from_cart(user_id, product_id)
+                    cart_manager.clear_product(user_id, product_id)
+                    # Atualiza o estado do botão para "Adicionar ao Carrinho"
+                    new_keyboard = cart_manager.create_cart_keyboard(user_id, product_id)
+                    await query.edit_message_reply_markup(reply_markup=new_keyboard)
+                    return
                 elif action == 'increase':
                     quantity = cart_manager.add_to_cart(user_id, product)
                 elif action == 'decrease':
@@ -101,17 +110,6 @@ async def handle_cart_actions(update: Update, context: ContextTypes.DEFAULT_TYPE
             else:
                 await query.message.reply_text("Produto não encontrado no carrinho.")
                 return
-        
-        if not cart_item:
-            try:
-                # Show product removed message
-                await query.edit_message_text(
-                    text="Produto removido do carrinho.",
-                    parse_mode=ParseMode.HTML
-                )
-            except Exception as e:
-                print(f"Error updating message after removal: {e}")
-            return
         
         quantity = cart_item['quantity']
         price = float(product['price'])

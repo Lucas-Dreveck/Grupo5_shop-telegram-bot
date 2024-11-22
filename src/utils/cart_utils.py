@@ -97,5 +97,11 @@ class CartManager:
             del self.cart[user_id]
         if user_id in self.loading_states:
             del self.loading_states[user_id]
+            
+    def clear_product(self, user_id, product_id):
+        if user_id in self.cart and product_id in self.cart[user_id]:
+            del self.cart[user_id][product_id]
+        if user_id in self.loading_states:
+            self.loading_states[user_id].discard(product_id)
 
 cart_manager = CartManager()
